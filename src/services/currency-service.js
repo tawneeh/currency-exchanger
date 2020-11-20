@@ -1,14 +1,13 @@
 export default class CurrencyService {
-  static getExchange() {
-    return fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`)
-      .then(function(response) {
-        if (!repsonse.ok) {
-          throw Error(response.statusText);
+  static async getExchange() {
+    try {
+      const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`);
+      if (!response.ok) {
+          throw Error(response.status);
         }
         return response.json();
-      })
-      .catch(function(error) {
-        return Error(error);
-      });
+      } catch(error) {
+        return error.message;
+      }
   }
 }
