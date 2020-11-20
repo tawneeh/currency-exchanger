@@ -8,30 +8,24 @@ function clearFields() {
   $('#dollars').val("");
 }
 
-function displayEuro(response) {
-  const EUR = $('#dollars').val() * response.conversion_rates.EUR;
-  $('.show-euro-exchange').text(`${EUR} Euros!`);
+function displayAmount(response) {
+  let EUR = $('#dollars').val() * response.conversion_rates.EUR;
+  let GBP = $('#dollars').val() * response.conversion_rates.GBP;
+  if (response.conversion_rates.EUR) {
+    $('.show-exchange').text(`${EUR} in this currency!`);
+  } else if (response.conversion_rates.GBP) {
+    $('.show-exchange').text(`${GBP} in this currency`);
+  }
 }
 
-function displayErrors(error) {
-  $('.show-errors').text(`${error}`);
+async function makeApiCall(code) {
+  const response = await CurrencyService.getExchange(code);
+  displayAmount(response);
 }
 
 $(document).ready(function() {
   $('#exchange').click(function() {
-    let dollars = $('#dollars').val();
     clearFields();
-    CurrencyService.getExchange(dollars)
-      .then(function(response) {
-        if (response instanceof Error) {
-          throw Error(`ExchangeRate API error: ${response.message}`);
-        } 
-        const euroAmount = response.conversion_rates.EUR;
-        displayEuro(euroAmount);
-      })
-      .catch(function(error) {
-        displayErrors(error.message);
-      });
-
+    makeApiCall(code);
   });
 });
