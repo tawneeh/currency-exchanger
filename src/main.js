@@ -11,6 +11,7 @@ function clearFields() {
 function getElements(response) {
   if (response) {
     $('.show-exchange').text(`"${response.conversion_rates}"`);
+    console.log("wow");
   }
 }
 
