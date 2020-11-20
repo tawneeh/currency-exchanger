@@ -9,8 +9,8 @@ function clearFields() {
 }
 
 function displayEuro(response) {
-  let euro = response.conversion_rates.EUR;
-  $('.show-euro-exchange').text(`${euro} in Euros!`);
+  const EUR = $('#dollars').val() * response.conversion_rates.EUR;
+  $('.show-euro-exchange').text(`${EUR} Euros!`);
 }
 
 function displayErrors(error) {
@@ -19,15 +19,15 @@ function displayErrors(error) {
 
 $(document).ready(function() {
   $('#exchange').click(function() {
-    // let dollars = $('#dollars').val();
-    // let euro = dollars * response.conversion_rates.EUR;
+    let dollars = $('#dollars').val();
     clearFields();
-    CurrencyService.getExchange()
+    CurrencyService.getExchange(dollars)
       .then(function(response) {
         if (response instanceof Error) {
           throw Error(`ExchangeRate API error: ${response.message}`);
         } 
-        displayEuro();
+        const euroAmount = response.conversion_rates.EUR;
+        displayEuro(euroAmount);
       })
       .catch(function(error) {
         displayErrors(error.message);
@@ -35,5 +35,3 @@ $(document).ready(function() {
 
   });
 });
-
-// let euro = `${dollars}` * getExchange.conversion_rates.ERU; need in function displayEuro? or part of const euro = 
