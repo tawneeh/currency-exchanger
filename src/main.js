@@ -8,15 +8,10 @@ function clearFields() {
   $('#dollars').val("");
 }
 
-async function makeApiCall(dollars) {
-  const response = await CurrencyService.getExchange(dollars);
-  getElements(response);
-  console.log("makeCall");
-}
-
 function getElements(response) {
-  const EUR = $('#dollars').val() * response.conversion_rates.EUR;
-  $('.show-exchange').text(`${EUR} Euros!`);
+  if (response) {
+    $('.show-exchange').text(`response.conversion_rates`);
+  }
 }
 
 function displayErrors(error) {
@@ -32,7 +27,7 @@ $(document).ready(function() {
         if (response instanceof Error) {
           throw Error(`ExchangeRate API error: ${response.message}`);
         } 
-        makeApiCall(dollars);  
+        getElements(response);  
       })
       .catch(function(error) {
         displayErrors(error.message);
