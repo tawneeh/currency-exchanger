@@ -5,27 +5,16 @@
 </head>
 <body>
   <div class="container">
-    <h1>US Dollars</h1>
-    <label for="dollars">Enter US Dollar Amount:</label>
+    <h1>Currency Exchanger</h1>
+    <label for="dollars">Enter US dollar amount:</label>
     <input id="dollars" type="number">
-
-    <label for="currency">Currency to Convert Into</label>
-    <select name="currency" id="currency">
-    <option value="EUR">Euro</option>
-    <option value="GBP">UK Pound</option>
-    <option value="JPY">Japanese Yen</option>
-    <option value="PHP">Philippine Peso</option>
-    <option value="KRW">South Korean Won</option>
-    </select>
+    <h1>Choose one of the following currency codes: EUR for Euros, GBP for British Pounds, JPY for Japanese Yen, PHP for Philippine Pesos, or KRW for South Korean Won.</h1>
+    <label for="threeDigit">Enter the Code:</label>
+    <input id="threeDigit" type="text">
 
     <button class="btn-success" id="exchange">Exchange!</button>
 
-    <div class="show-euro-exchange"></div>
-    <div class="show-pound-exchange"></div>
-    <div class="show-yen-exchange"></div>
-    <div class="show-peso-exchange"></div>
-    <div class="show-won-exchange"></div>
-
+    <div class="show-exchange"></div>
     <div class="show-errors"></div>
   </div>
   <script type="text/javascript" src="bundle.js"></script>
