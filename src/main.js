@@ -15,24 +15,15 @@ function getElements(response) {
   }
 }
 
-function displayErrors(error) {
-  $('.show-errors').text(`${error}`);
+async function makeApiCall() {
+  const response = await CurrencyService.getExchange();
+  getElements(response);
 }
 
 $(document).ready(function() {
   $('#exchange').click(function() {
     const dollars = $('#dollars').val();
     clearFields();
-    CurrencyService.getExchange(dollars)
-      .then(function(response) {
-        if (response instanceof Error) {
-          throw Error(`ExchangeRate API error: ${response.message}`);
-        } 
-        getElements(response);  
-      })
-      .catch(function(error) {
-        displayErrors(error.message);
-      });
-
+    makeApiCall(dollars);
   });
 });
