@@ -8,9 +8,15 @@ function clearFields() {
   $('#dollars').val("");
 }
 
-function displayEuro(response) {
+async function makeApiCall(dollars) {
+  const response = await CurrencyService.getExchange(dollars);
+  getElements(response);
+  console.log("makeCall");
+}
+
+function getElements(response) {
   const EUR = $('#dollars').val() * response.conversion_rates.EUR;
-  $('.show-euro-exchange').text(`${EUR} Euros!`);
+  $('.show-exchange').text(`${EUR} Euros!`);
 }
 
 function displayErrors(error) {
@@ -19,15 +25,14 @@ function displayErrors(error) {
 
 $(document).ready(function() {
   $('#exchange').click(function() {
-    let dollars = $('#dollars').val();
+    const dollars = $('#dollars').val();
     clearFields();
     CurrencyService.getExchange(dollars)
       .then(function(response) {
         if (response instanceof Error) {
           throw Error(`ExchangeRate API error: ${response.message}`);
         } 
-        const euroAmount = response.conversion_rates.EUR;
-        displayEuro(euroAmount);
+        makeApiCall(dollars);  
       })
       .catch(function(error) {
         displayErrors(error.message);
