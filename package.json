@@ -1,7 +1,7 @@
 {
-  "name": "template",
+  "name": "currency-exchanger",
   "version": "1.0.0",
-  "description": "",
+  "description": "This application should allow users to see US currecny converted into five other types of currency.",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode development",
