@@ -8,22 +8,15 @@ function clearFields() {
   $('#dollars').val("");
 }
 
-function getElements(response) {
-  if (response) {
-    $('.show-exchange').text(`"${response.conversion_rates}"`);
-    console.log("wow");
-  }
-}
-
-async function makeApiCall() {
-  const response = await CurrencyService.getExchange();
-  getElements(response);
-}
-
 $(document).ready(function() {
   $('#exchange').click(function() {
-    const dollars = $('#dollars').val();
     clearFields();
-    makeApiCall(dollars);
+    let promise = CurrencyService.getExchange();
+    promise.then(function(response) {
+      const data = JSON.parse(response);
+      $('.show-exchange').text(`The currency exchange is ${data.conversion_rates}`);
+    }, function(error) {
+      $('.show-errors').text(`There was an error with your request: ${error}`);
+    });
   });
 });

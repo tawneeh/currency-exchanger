@@ -10,7 +10,7 @@ export default class CurrencyService {
         } else {
           reject(request.response);
         }
-      }
+      };
       request.open("GET", link, true);
       request.send();
     });
