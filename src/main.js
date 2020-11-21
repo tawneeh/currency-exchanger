@@ -5,7 +5,7 @@ import './css/styles.css';
 import CurrencyService from './services/currency-service.js';
 
 function clearFields() {
-  $('#dollars').val("");
+$('#dollars').val("");
 }
 
 $(document).ready(function() {
