@@ -32,7 +32,7 @@ Setup Instructions
 
 ## Known Bugs
 
-This application has no known bugs. 
+This application is not yet fully functional. 
 
 ## Support and contact details
 
