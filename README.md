@@ -23,12 +23,12 @@ Open by Downloading or Cloning
 Setup Instructions
 * Node Package Manager and locally installed files are required to properly view this project. 
 * After the repository is on your computer, navigate to the terminal and type in `npm install`
-* Create a `.env` file in the project root directory. Add `.env` to the `.gitignore` file. 
+* Create a `.env` file in the project root directory
 * Navigate to <https://www.exchangerate-api.com/>
-* Request a free API key and save it to your `.env` file.
+* Request a free API key and save it to your `.env` file
 * Next, `npm run build`
 * And finally, `npm run start`
-* View the project in the live server that opens.
+* View the page in the live server that opens
 
 ## Known Bugs
 
@@ -38,14 +38,13 @@ This application is not yet fully functional.
 
 Please feel free to reach out to me anytime at <tawneeh@icloud.com>
 
-## Technologies Used -- DOES THIS NEED TO BE UPDATED?
+## Technologies Used
 
 * HTML
 * CSS
 * Bootstrap
 * JavaScript
 * jQuery
-* Jest TDD
 
 ### License
 
