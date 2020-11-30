@@ -7,7 +7,7 @@
 
 ## Description
 
-This application will allow users to see US currecny converted into five other types of currency. 
+This application will allow users to see US currency converted into five other types of currency. 
 
 ## Setup/Installation Requirements
 
@@ -32,7 +32,7 @@ Setup Instructions
 
 ## Known Bugs
 
-This application is not yet fully functional. 
+This application has no known bugs. 
 
 ## Support and contact details
 
