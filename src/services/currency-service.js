@@ -5,6 +5,7 @@ export default class CurrencyService {
       const link = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`;
 
       request.onload = function() {
+        console.log(request);
         if (this.status === 200) {
           resolve(request.response);
         } else {
