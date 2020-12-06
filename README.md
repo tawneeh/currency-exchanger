@@ -25,7 +25,8 @@ Setup Instructions
 * After the repository is on your computer, navigate to the terminal and type in `npm install`
 * Create a `.env` file in the project root directory
 * Navigate to <https://www.exchangerate-api.com/>
-* Request a free API key and save it to your `.env` file
+* Request a free API key
+* Save your api key to your .env file using this format: API_KEY=your-api-key-here
 * Next, `npm run build`
 * And finally, `npm run start`
 * View the page in the live server that opens
